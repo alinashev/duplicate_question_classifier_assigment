@@ -3,8 +3,8 @@ import numpy as np
 from torch import nn
 from tqdm import tqdm
 
-from metrics.model_metrics import ModelEvaluation
-from metrics.display import (
+from modeling.metrics.model_metrics import ModelEvaluation
+from modeling.metrics.display import (
     display_confusion_matrix,
     display_metrics,
     display_roc_auc,
@@ -13,7 +13,8 @@ from metrics.display import (
 
 
 def choose_device(preferred_device=None) -> torch.device:
-    """Chooses an appropriate device for computation (CPU or GPU).
+    """
+    Chooses an appropriate device for computation (CPU or GPU).
 
     Args:
         preferred_device (str, optional): Desired device (e.g., "cuda", "cpu").
@@ -33,7 +34,8 @@ def choose_device(preferred_device=None) -> torch.device:
 
 
 def train_one_epoch(model, train_loader, optimizer, criterion, device):
-    """Trains the model for one epoch.
+    """
+    Trains the model for one epoch.
 
     Args:
         model (torch.nn.Module): The model to train.
@@ -80,7 +82,8 @@ def train_one_epoch(model, train_loader, optimizer, criterion, device):
 
 
 def evaluate_model(model, data_loader, criterion, device):
-    """Evaluates the model on validation or test data.
+    """
+    Evaluates the model on validation or test data.
 
     Args:
         model (torch.nn.Module): Trained model.
@@ -121,7 +124,8 @@ def evaluate_model(model, data_loader, criterion, device):
 
 
 def train_model(model, train_loader, val_loader, num_epochs=5, lr=1e-3, device=None, patience=3):
-    """Trains the model and evaluates it on validation set with early stopping.
+    """
+    Trains the model and evaluates it on validation set with early stopping.
 
     Args:
         model (torch.nn.Module): Model to train.

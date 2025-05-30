@@ -1,5 +1,5 @@
 from sklearn.linear_model import LogisticRegression
-from models.model.base_model import BaseModel
+from modeling.models.model.base_model import BaseModel
 
 
 class LogisticRegressionModel(BaseModel):

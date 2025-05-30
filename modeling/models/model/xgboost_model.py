@@ -1,9 +1,10 @@
 import xgboost as xgb
-from models.model.base_model import BaseModel
+from modeling.models.model.base_model import BaseModel
 
 
 class XGBModel(BaseModel):
-    """XGBoost model wrapper for binary classification.
+    """
+    XGBoost model wrapper for binary classification.
 
     This class wraps `xgboost.XGBClassifier` and integrates it with the `BaseModel` interface.
     It supports parameter configuration and optional cross-validation setup.
