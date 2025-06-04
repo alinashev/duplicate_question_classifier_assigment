@@ -20,14 +20,14 @@
 
 Для зручності рішення розділення на декілька ноутбуків:
 
-[1. Exploratory Data Analysis](notebooks/1_eda.ipynb)
-[2. Baseline Model](notebooks/2_baseline_model.ipynb)
-[3. Preprocessing](notebooks/3_preprocessing.ipynb)
-[4. Modeling with GRU](notebooks/4_1_gru_modeling.ipynb)
-[5. Modeling with LSTM](notebooks/4_2_lstm_modeling.ipynb)
-[6. Modeling with CNN](notebooks/4_3_cnn_modeling.ipynb)
-[7. Modeling with BERT](notebooks/4_4_bert_modeling.ipynb)
-[8. Using the model](notebooks/5_model_explaining.ipynb)
+- [1. Exploratory Data Analysis](notebooks/1_eda.ipynb)
+- [2. Baseline Model](notebooks/2_baseline_model.ipynb)
+- [3. Preprocessing](notebooks/3_preprocessing.ipynb)
+- [4. Modeling with GRU](notebooks/4_1_gru_modeling.ipynb)
+- [5. Modeling with LSTM](notebooks/4_2_lstm_modeling.ipynb)
+- [6. Modeling with CNN](notebooks/4_3_cnn_modeling.ipynb)
+- [7. Modeling with BERT](notebooks/4_4_bert_modeling.ipynb)
+- [8. Using the model](notebooks/5_model_explaining.ipynb)
 
 ## Exploratory Data Analysis (EDA)
 
