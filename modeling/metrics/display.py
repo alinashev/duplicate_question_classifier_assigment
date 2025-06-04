@@ -210,3 +210,67 @@ def display_training_curves(history: dict):
 
     plt.tight_layout()
     plt.show()
+
+
+def display_all_confusion_matrices(train_y, val_y, test_y, train_pred, val_pred, test_pred):
+    """
+    Display normalized confusion matrices for train, validation, and test datasets.
+
+    This function creates a single row of three side-by-side confusion matrices
+    to compare model performance across datasets. The confusion matrices are
+    normalized by true label counts.
+
+    Args:
+        train_y (array-like): True labels for the training set.
+        val_y (array-like): True labels for the validation set.
+        test_y (array-like): True labels for the test set.
+        train_pred (array-like): Predicted labels for the training set.
+        val_pred (array-like): Predicted labels for the validation set.
+        test_pred (array-like): Predicted labels for the test set.
+
+    Returns:
+        None. Displays matplotlib figure with confusion matrices.
+    """
+    fig, axes = plt.subplots(1, 3, figsize=(18, 5))
+    for ax, y_true, y_p, title in zip(axes, [train_y, val_y, test_y], [train_pred, val_pred, test_pred],
+                                      ["Train", "Validation", "Test"]):
+        cm = confusion_matrix(y_true, y_p, normalize="true")
+        disp = ConfusionMatrixDisplay(cm)
+        disp.plot(ax=ax, colorbar=False, cmap="Blues")
+        ax.set_title(f"{title} Confusion Matrix")
+    plt.tight_layout()
+    plt.show()
+
+
+def display_all_roc_curves(train_y, val_y, test_y, train_probs, val_probs, test_probs):
+    """
+    Plot ROC curves for train, validation, and test datasets.
+
+    This function plots the Receiver Operating Characteristic (ROC) curves for
+    each dataset on a single graph. It computes and displays the Area Under
+    the Curve (AUC) for each set to evaluate model discrimination performance.
+
+    Args:
+        train_y (array-like): True binary labels for the training set.
+        val_y (array-like): True binary labels for the validation set.
+        test_y (array-like): True binary labels for the test set.
+        train_probs (array-like): Predicted probabilities for the training set.
+        val_probs (array-like): Predicted probabilities for the validation set.
+        test_probs (array-like): Predicted probabilities for the test set.
+
+    Returns:
+        None. Displays matplotlib figure with ROC curves.
+    """
+    plt.figure(figsize=(8, 6))
+    for y_true, y_prob, name in zip([train_y, val_y, test_y], [train_probs, val_probs, test_probs],
+                                    ["Train", "Validation", "Test"]):
+        fpr, tpr, _ = roc_curve(y_true, y_prob)
+        roc_auc = auc(fpr, tpr)
+        plt.plot(fpr, tpr, label=f"{name} (AUC = {roc_auc:.4f})")
+    plt.plot([0, 1], [0, 1], linestyle="--", color="grey")
+    plt.xlabel("False Positive Rate")
+    plt.ylabel("True Positive Rate")
+    plt.title("ROC Curves")
+    plt.legend()
+    plt.grid(alpha=0.3)
+    plt.show()

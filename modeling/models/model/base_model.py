@@ -1,8 +1,6 @@
-from rich.console import Console
-
-from models.utils.cross_validator import CrossValidator
-from metrics.model_metrics import ModelEvaluation
-from metrics.display import display_confusion_matrix, display_roc_auc, display_metrics, display_cross_validation_result
+from modeling.models.utils.cross_validator import CrossValidator
+from modeling.metrics.model_metrics import ModelEvaluation
+from modeling.metrics.display import display_confusion_matrix, display_roc_auc, display_metrics, display_cross_validation_result
 
 
 class BaseModel:
